@@ -1,17 +1,25 @@
 from collections import deque
 
-N = int(input())
-lst = list(map(int, input().split()))
-ans = deque()
-num = 0
+def process_list(lst):
+    ans = deque()
+    num = 0
 
-for i in range(N-1, -1, -1):
-    num += 1
-    if lst[i] == 1:
-        ans.appendleft(num)
-    elif lst[i] == 2:
-        ans.insert(1, num)
-    elif lst[i] == 3:
-        ans.append(num)
+    for val in reversed(lst):
+        num += 1
+        if val == 1:
+            ans.appendleft(num)
+        elif val == 2:
+            ans.insert(1, num)
+        elif val == 3:
+            ans.append(num)
 
-print(*ans)
+    return ans
+
+def main():
+    N = int(input())
+    lst = list(map(int, input().split()))
+    result = process_list(lst)
+    print(*result)
+
+if __name__ == "__main__":
+    main()
