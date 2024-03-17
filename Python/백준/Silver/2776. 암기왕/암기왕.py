@@ -1,6 +1,3 @@
-import sys
-input = sys.stdin.readline
-
 def main():
     T = int(input())
     for _ in range(T):
